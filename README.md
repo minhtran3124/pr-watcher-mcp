@@ -4,6 +4,8 @@ Local GitHub PR event watcher exposed as an MCP server. It receives GitHub webho
 
 It also includes a polling fallback through GitHub REST API via the `poll_pr_now` MCP tool. Set `GITHUB_TOKEN` for private repositories or to avoid unauthenticated rate limits.
 
+The researched post-MVP direction is documented in [PHASE_2_PLAN.md](./PHASE_2_PLAN.md). It prioritizes a reliable, agent-oriented PR feedback inbox before any approval-gated GitHub write actions.
+
 ## Run
 
 ```bash
