@@ -32,6 +32,22 @@ https://YOUR_PUBLIC_HOST/webhooks/github
 
 Use content type `application/json`, a secret matching `WEBHOOK_SECRET`, and subscribe to Pull requests, Pull request reviews, Pull request review comments, and Issue comments.
 
+### Local webhook with ngrok
+
+For local development, start the MCP server and expose its webhook port with ngrok:
+
+```bash
+ngrok http 8787
+```
+
+Copy the HTTPS forwarding URL shown by ngrok and configure the GitHub webhook URL as:
+
+```text
+https://YOUR_NGROK_HOST/webhooks/github
+```
+
+Use the same `WEBHOOK_SECRET` in both the local environment and the GitHub webhook settings. The free ngrok URL usually changes when the tunnel restarts, so update the webhook URL when that happens.
+
 ## `GITHUB_TOKEN`
 
 `GITHUB_TOKEN` is optional for public repositories. It is used by the `poll_pr_now` tool when calling the GitHub REST API. Set it for private repositories or when unauthenticated API rate limits are insufficient. The token is read when the MCP process starts, so restart the process after creating or changing it.
